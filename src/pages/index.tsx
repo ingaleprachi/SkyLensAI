@@ -2,18 +2,26 @@ import { useEffect, useState } from 'react';
 import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'firebase/auth';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { Spinner } from '@/components/Spinner';
-import { auth, db } from '@/lib/firebase';
+import { auth } from '@/lib/firebase';
+import dynamic from 'next/dynamic';
+
+// ✅ Dynamically import PollutionMap to prevent SSR error
+const PollutionMap = dynamic(() => import('@/components/PollutionMap'), {
+  ssr: false,
+});
 
 export default function Home() {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<any[]>([]);
+  const [aqiData, setAqiData] = useState<any[]>([]);
+  const [spatialData, setSpatialData] = useState<any[]>([]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);
         fetchAQIData();
+        fetchSpatialData();
       }
       setLoading(false);
     });
@@ -25,9 +33,19 @@ export default function Home() {
     try {
       const response = await fetch('/api/aqi');
       const json = await response.json();
-      setData(json);
+      setAqiData(json);
     } catch (error) {
       console.error('Error fetching AQI data:', error);
+    }
+  };
+
+  const fetchSpatialData = async () => {
+    try {
+      const response = await fetch('/api/spatial');
+      const json = await response.json();
+      setSpatialData(json);
+    } catch (error) {
+      console.error('Error fetching spatial PM2.5 data:', error);
     }
   };
 
@@ -71,7 +89,7 @@ export default function Home() {
       <div className="card">
         <h2 style={{ fontSize: '20px', marginBottom: '1rem' }}>Realtime AQI Forecast</h2>
         <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={data}>
+          <LineChart data={aqiData}>
             <Line type="monotone" dataKey="aqi" stroke="#8884d8" />
             <CartesianGrid stroke="#ccc" />
             <XAxis dataKey="time" />
@@ -79,6 +97,11 @@ export default function Home() {
             <Tooltip />
           </LineChart>
         </ResponsiveContainer>
+      </div>
+
+      <div className="card" style={{ marginTop: '2rem' }}>
+        <h2 style={{ fontSize: '20px', marginBottom: '1rem' }}>📍 Spatial PM2.5 Concentration</h2>
+        <PollutionMap data={spatialData} />
       </div>
     </main>
   );
