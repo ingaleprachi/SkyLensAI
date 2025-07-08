@@ -30,24 +30,25 @@ export default function Home() {
   }, []);
 
   const fetchAQIData = async () => {
-    try {
-      const response = await fetch('/api/aqi');
-      const json = await response.json();
-      setAqiData(json);
-    } catch (error) {
-      console.error('Error fetching AQI data:', error);
-    }
-  };
+  try {
+    const response = await fetch('/aqi.json'); // ✅ Load from static file
+    const json = await response.json();
+    setAqiData(json);
+  } catch (error) {
+    console.error('Error loading AQI data:', error);
+  }
+};
 
-  const fetchSpatialData = async () => {
-    try {
-      const response = await fetch('/api/spatial');
-      const json = await response.json();
-      setSpatialData(json);
-    } catch (error) {
-      console.error('Error fetching spatial PM2.5 data:', error);
-    }
-  };
+const fetchSpatialData = async () => {
+  try {
+    const response = await fetch('/spatial.json'); // ✅ Load from static file
+    const json = await response.json();
+    setSpatialData(json);
+  } catch (error) {
+    console.error('Error loading PM2.5 data:', error);
+  }
+};
+
 
   const handleLogin = async () => {
     const provider = new GoogleAuthProvider();
