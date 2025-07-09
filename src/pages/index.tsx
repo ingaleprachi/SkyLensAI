@@ -63,41 +63,52 @@ const fetchSpatialData = async () => {
 
   if (!user) {
     return (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        background: '#4a90e2',
-        color: 'white',
-        textAlign: 'center',
-      }}>
-        <h1 style={{ fontSize: '32px', marginBottom: '1rem' }}>Welcome to SkyLensAI</h1>
-        <p style={{ marginBottom: '1rem' }}>Track & Predict Air Pollution Using Space and AI</p>
-        <button onClick={handleLogin} className="button">Sign in with Google</button>
-      </div>
-    );
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    background: '#3b82f6', // blue-500
+    color: 'white',
+    textAlign: 'center',
+  }}>
+    <h1 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '1rem' }}>🌐 Welcome to SkyLensAI</h1>
+    <p style={{ fontSize: '18px', marginBottom: '2rem' }}>Track & Predict Air Pollution Using Space and AI</p>
+    <button className="google-btn" onClick={handleLogin}>
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
+      Sign in with Google
+    </button>
+  </div>
+);
+
   }
 
   return (
     <main className="container">
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>📊 Air Quality Dashboard</h1>
-        <button onClick={handleLogout} className="button">Logout</button>
-      </div>
+      <div style={{
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginBottom: '2rem'
+}}>
+  <h1 style={{ fontSize: '28px', fontWeight: 'bold' }}>📊 Air Quality Dashboard</h1>
+  <button onClick={handleLogout} className="button">Logout</button>
+</div>
+
 
       <div className="card">
         <h2 style={{ fontSize: '20px', marginBottom: '1rem' }}>Realtime AQI Forecast</h2>
         <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={aqiData}>
-            <Line type="monotone" dataKey="aqi" stroke="#8884d8" />
-            <CartesianGrid stroke="#ccc" />
-            <XAxis dataKey="time" />
-            <YAxis />
-            <Tooltip />
-          </LineChart>
-        </ResponsiveContainer>
+  <LineChart data={aqiData} style={{ backgroundColor: "#1e1e1e" }}>
+    <Line type="monotone" dataKey="aqi" stroke="#00FFFF" strokeWidth={3} dot={{ r: 5, fill: "#fff" }} />
+    <CartesianGrid stroke="#444" />
+    <XAxis dataKey="time" stroke="#fff" />
+    <YAxis stroke="#fff" />
+    <Tooltip contentStyle={{ backgroundColor: "#222", border: "none", color: "#fff" }} />
+  </LineChart>
+</ResponsiveContainer>
+
       </div>
 
       <div className="card" style={{ marginTop: '2rem' }}>

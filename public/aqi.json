@@ -1,1 +1,6 @@
-[{"station":"Delhi","lat":28.61,"lon":77.23,"datetime":"2024-06-15T06:00","aqi":185},{"station":"Mumbai","lat":19.07,"lon":72.87,"datetime":"2024-06-15T06:00","aqi":110},{"station":"Chennai","lat":13.08,"lon":80.27,"datetime":"2024-06-15T06:00","aqi":75}]
+[
+  { "time": "10:00", "aqi": 185 },
+  { "time": "11:00", "aqi": 110 },
+  { "time": "12:00", "aqi": 75 },
+  { "time": "13:00", "aqi": 160 }
+]
