@@ -21,10 +21,12 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0f172a; /* dark navy */
   color: #f8fafc; /* almost white */
   line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -42,5 +44,49 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.button {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #2563eb; /* blue-600 */
+  transform: scale(1.05);
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #333;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 10px 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.google-btn:hover {
+  background: #f1f5f9;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.google-btn img {
+  margin-right: 12px;
+  height: 20px;
+}
