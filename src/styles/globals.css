@@ -23,8 +23,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0f172a; /* dark navy */
-  color: #f8fafc; /* almost white */
+  background-color: #0f172a; /* deep navy */
+  color: #f8fafc; /* soft white */
   line-height: 1.6;
   transition: background 0.3s ease, color 0.3s ease;
 }
@@ -36,33 +36,34 @@ body {
 }
 
 .card {
-  background: #1e293b; /* deep blue-gray */
+  background: #1e293b;
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
 .button {
-  background-color: #3b82f6; /* blue-500 */
+  background-color: #3b82f6;
   color: white;
-  padding: 12px 28px;
+  padding: 12px 26px;
   font-size: 16px;
   font-weight: 600;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .button:hover {
-  background-color: #2563eb; /* blue-600 */
-  transform: scale(1.05);
+  background-color: #2563eb;
+  transform: translateY(-1px) scale(1.03);
 }
 
 .google-btn {
@@ -70,23 +71,24 @@ body {
   align-items: center;
   justify-content: center;
   background: white;
-  color: #333;
-  border: 1px solid #ccc;
+  color: #222;
+  border: 1px solid #ddd;
   font-size: 16px;
   font-weight: 500;
   border-radius: 10px;
-  padding: 10px 22px;
+  padding: 10px 24px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
 }
 
 .google-btn:hover {
-  background: #f1f5f9;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  background: #f5f5f5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
 .google-btn img {
-  margin-right: 12px;
+  margin-right: 10px;
   height: 20px;
 }
