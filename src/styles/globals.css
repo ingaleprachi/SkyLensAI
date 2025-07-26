@@ -79,13 +79,13 @@ body {
   padding: 10px 24px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 12px rgba(0, 1, 0, 0.12);
 }
 
 .google-btn:hover {
-  background: rgb(22, 20, 20);
+  background: rgb(156, 82, 82);
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(17, 0, 0, 0.2);
+  box-shadow: 0 6px 14px rgba(160, 144, 142, 0.2);
 }
 
 .google-btn img {
