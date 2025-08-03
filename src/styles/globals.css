@@ -83,7 +83,7 @@ body {
 }
 
 .google-btn:hover {
-  background: rgb(228, 223, 223);
+  background: rgb(211, 186, 186);
   transform: translateY(-1px);
   box-shadow: 0 6px 14px rgba(9, 9, 9, 0.2);
 }
